@@ -1,0 +1,1 @@
+# EB-STM32L412KB-hard
