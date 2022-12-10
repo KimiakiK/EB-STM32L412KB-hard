@@ -1,0 +1,81 @@
+
+(rules PCB EB-STM32L412KB
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 230)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 3.6)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.4)
+    )
+  )
+  (rule
+    (width 254.0)
+    (clear 203.2)
+    (clear 127.0 (type smd_to_turn_gap))
+  )
+  (padstack "Via[0-1]_609.6:304.8_um"
+    (shape
+      (circle F.Cu 609.6 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 609.6 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_609.6:304.8_um" "Via[0-1]_609.6:304.8_um" default
+  )
+  (via 
+    "Via[0-1]_609.6:304.8_um-kicad_default" "Via[0-1]_609.6:304.8_um" "kicad_default"
+  )
+  (via_rule
+    default "Via[0-1]_609.6:304.8_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_609.6:304.8_um-kicad_default"
+  )
+  (class default
+    +5V GND "OSC_I" "OSC_O" "Net-(D1-Pad2)" "Net-(D2-Pad1)" "Net-(D2-Pad2)" "Net-(F1-Pad1)"
+    "Net-(F1-Pad2)" /D+ "/D-" NRST SWCLK SWDIO PB1 PB0
+    PA7 PA6 PA5 PA4 PA3 PA2 PA1 PA0
+    PA8 PA9 PA10 PA11 PA12 PA15 PB3 PB4
+    PB5 PH3 +3.3V "unconnected-(J1-Pad4)" "unconnected-(J2-Pad1)" "unconnected-(J2-Pad2)" "unconnected-(J2-Pad8)" "unconnected-(J2-Pad9)"
+    "unconnected-(J2-Pad10)" "unconnected-(J2-Pad13)" "unconnected-(J2-Pad14)" PB7 PB6 "FT_DP" USBDP "FT_DM"
+    USBDM "unconnected-(U2-Pad8)" "unconnected-(U2-Pad11)"
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 254.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    (clearance_class "kicad_default")
+    (via_rule "kicad_default")
+    (rule
+      (width 254.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)
